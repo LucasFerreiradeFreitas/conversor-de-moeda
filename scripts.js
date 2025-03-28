@@ -1,17 +1,17 @@
-const convertButton = document.querySelector(".convert-button");
-const currentSelect = document.querySelector(".currency-select");
-const currentSelectToConvert = document.querySelector(".currency-select-to-convert"); // Correção
+const convertButton = document.querySelector(".convert-button"); // botão que, ao ser clicado, ativa a conversão
+const currentSelect = document.querySelector(".currency-select"); // dropdown (menu de seleção) que representa a moeda de entrada
+const currentSelectToConvert = document.querySelector(".currency-select-to-convert"); // dropdown que representa a moeda para a qual queremos converter
 
-function convertValues() {
-  const inputCurrencyValue = document.querySelector(".input-currency").value;
-  const currencyValueToConvert = document.querySelector(".currency-value-to-convert");
-  const currencyValueToConverted = document.querySelector(".currency-value");
+function convertValues() { //Essa função executa a conversão de moeda quando o botão é pressionado
+  const inputCurrencyValue = document.querySelector(".input-currency").value; // captura o valor numérico inserido pelo usuário
+  const currencyValueToConvert = document.querySelector(".currency-value-to-convert"); // local onde aparece o valor antes da conversão
+  const currencyValueToConverted = document.querySelector(".currency-value"); // local onde aparece o valor após a conversão
 
-  const dolarToday = 5.76;
-  const euroToday = 6.24;
-  const libraToday = 7.47;
+  const dolarToday = 5.76; // taxa de conversão fictícia
+  const euroToday = 6.24; // taxa de conversão fictícia
+  const libraToday = 7.47; // taxa de conversão fictícia
 
-  if (currentSelect.value == "real" && currentSelectToConvert.value == "real") {
+  if (currentSelect.value == "real" && currentSelectToConvert.value == "real") { 
     currencyValueToConverted.innerHTML = new Intl.NumberFormat("pt-br", {
       style: "currency",
       currency: "BRL",
@@ -157,11 +157,11 @@ function convertValues() {
   }
 }
 
-function changeCurrency() {
+function changeCurrency() { // Essa função atualiza a exibição dos nomes e imagens das moedas conforme o usuário muda a seleção nos menus.
   const currencyDolar = document.querySelector(".currency-dolar");
   const currencyImg = document.querySelector(".currency-img");
-  const currencyReal = document.querySelector(".currency-real"); // Correção
-  const currencyImgToConvert = document.querySelector(".currency-img-to-convert"); // Correção
+  const currencyReal = document.querySelector(".currency-real"); 
+  const currencyImgToConvert = document.querySelector(".currency-img-to-convert"); 
 
   if (currentSelect.value == "real") {
     currencyDolar.innerHTML = "Real";
@@ -199,6 +199,6 @@ function changeCurrency() {
   convertValues();
 }
 
-currentSelect.addEventListener("change", changeCurrency);
-currentSelectToConvert.addEventListener("change", changeCurrency); // Correção
-convertButton.addEventListener("click", convertValues);
+currentSelect.addEventListener("change", changeCurrency); // Sempre que o usuário muda a moeda no menu de seleção, changeCurrency() é acionada
+currentSelectToConvert.addEventListener("change", changeCurrency);
+convertButton.addEventListener("click", convertValues); // Quando o botão de conversão é pressionado, convertValues() realiza a conversão
