@@ -11,26 +11,42 @@ function convertValues() { //Essa função executa a conversão de moeda quando 
   const euroToday = 6.24; // taxa de conversão fictícia
   const libraToday = 7.47; // taxa de conversão fictícia
 
-  if (currentSelect.value == "real" && currentSelectToConvert.value == "real") { 
+  if (currentSelect.value == "real" && currentSelectToConvert.value == "real") {
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-br", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputCurrencyValue);
     currencyValueToConverted.innerHTML = new Intl.NumberFormat("pt-br", {
       style: "currency",
       currency: "BRL",
     }).format(inputCurrencyValue);
   }
   if (currentSelect.value == "dolar" && currentSelectToConvert.value == "real") {
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-br", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputCurrencyValue);
     currencyValueToConverted.innerHTML = new Intl.NumberFormat("en-us", {
       style: "currency",
       currency: "USD",
     }).format(inputCurrencyValue / dolarToday);
   }
   if (currentSelect.value == "euro" && currentSelectToConvert.value == "real") {
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-br", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputCurrencyValue);
     currencyValueToConverted.innerHTML = new Intl.NumberFormat("en-de", {
       style: "currency",
       currency: "EUR",
     }).format(inputCurrencyValue / euroToday);
   }
   if (currentSelect.value == "libra" && currentSelectToConvert.value == "real") {
-    currencyValueToConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+    currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-br", {
+      style: "currency",
+      currency: "BRL",
+    }).format(inputCurrencyValue);
+    currencyValueToConverted.innerHTML = new Intl.NumberFormat("en-gb", {
       style: "currency",
       currency: "GBP",
     }).format(inputCurrencyValue / libraToday);
